@@ -1520,6 +1520,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "spnego"
+version = "0.0.0"
+
+[[package]]
 name = "subtle"
 version = "2.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

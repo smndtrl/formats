@@ -18,6 +18,7 @@ members = [
     "pkcs12",
     "sec1",
     "serdect",
+    "spnego",
     "spki",
     "tai64",
     "tls_codec",

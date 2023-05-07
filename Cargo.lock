@@ -1522,6 +1522,12 @@ dependencies = [
 [[package]]
 name = "spnego"
 version = "0.0.0"
+dependencies = [
+ "der",
+ "hex-literal",
+ "spki",
+ "x509-cert 0.2.1",
+]
 
 [[package]]
 name = "subtle"

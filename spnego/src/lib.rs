@@ -25,7 +25,7 @@ use spki::ObjectIdentifier;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GssToken<'a> {
-    pub tag: ObjectIdentifier,
+    pub tag: Option<ObjectIdentifier>,
     pub object: alloc::vec::Vec<NegotiationToken<'a>>,
 }
 
@@ -198,7 +198,7 @@ mod tests {
 
         let gss_bytes = hex!("604806062b0601050502a03e303ca00e300c060a2b06010401823702020aa22a04284e544c4d535350000100000005028862000000000000000000000000000000000601b01d0000000f");
         let gss = GssToken::from_der(&gss_bytes).unwrap();
-        assert_eq!(ObjectIdentifier::new_unwrap("1.3.6.1.5.5.2"), gss.tag);
+        assert_eq!(Some(ObjectIdentifier::new_unwrap("1.3.6.1.5.5.2")), gss.tag);
     }
 
     #[test]
@@ -209,7 +209,7 @@ mod tests {
         let reference = hex!("604806062b0601050502a03e303ca00e300c060a2b06010401823702020aa22a04284e544c4d535350000100000005028862000000000000000000000000000000000601b01d0000000f");
 
         let gss_token = GssToken {
-            tag: ObjectIdentifier::new_unwrap("1.3.6.1.5.5.2"),
+            tag: Some(ObjectIdentifier::new_unwrap("1.3.6.1.5.5.2")),
             object: vec![NegotiationToken::NegTokenInit(NegTokenInit2 {
                 mech_types: Some(vec![ObjectIdentifier::new_unwrap("1.3.6.1.4.1.311.2.2.10")]),
                 req_flags: None,
